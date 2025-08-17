@@ -1,6 +1,18 @@
 "use client"
 import { useState } from "react"
 import RazorpayButton from "./RazorpayButton"
+import {
+  FaUser,
+  FaEnvelope,
+  FaPhone,
+  FaGraduationCap,
+  FaRupeeSign,
+  FaLock,
+  FaShieldAlt,
+  FaCreditCard,
+} from "react-icons/fa"
+import { MdSecurity, MdVerifiedUser, MdPayment, MdAccountBalance } from "react-icons/md"
+import { IoCheckmarkCircle, IoCard } from "react-icons/io5"
 
 export default function PaymentSection() {
   const [selectedAmount, setSelectedAmount] = useState(3000)
@@ -55,21 +67,34 @@ export default function PaymentSection() {
   const isFormValid = userDetails.name && userDetails.email && userDetails.phone && selectedAmount > 0
 
   return (
-    <section className="py-12 sm:py-16 bg-gray-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Pay Course Fee</h2>
-          <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 leading-relaxed">
-            Pay your course fees securely online. Select your fee amount or enter a custom amount for admission charges,
-            semester fees, or other educational expenses.
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mb-6">
+            <FaCreditCard className="text-2xl text-white" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
+            Pay Course Fee
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+            Secure online fee payment for your educational journey. Complete your admission with our trusted payment
+            gateway.
           </p>
+        </div>
 
-          <div className="bg-white rounded-xl shadow-lg border border-blue-50 p-6 sm:p-8 max-w-lg mx-auto">
-            <div className="mb-8">
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6">Student Details</h3>
-              <div className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block mb-2 font-medium text-gray-900 text-left">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 sm:p-10">
+            <div className="mb-10">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                  <FaUser className="text-white text-sm" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">Student Information</h2>
+              </div>
+              <div className="grid gap-6">
+                <div className="relative">
+                  <label htmlFor="name" className="flex items-center gap-2 mb-3 font-semibold text-gray-800">
+                    <FaUser className="text-blue-500" />
                     Full Name *
                   </label>
                   <input
@@ -78,14 +103,14 @@ export default function PaymentSection() {
                     name="name"
                     value={userDetails.name}
                     onChange={handleUserDetailsChange}
-                    placeholder="Enter your full name"
+                    placeholder="Enter your complete name"
                     required
-                    className="w-full px-4 py-3 border-2 border-blue-100 rounded-lg text-base outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="w-full px-5 py-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl text-base outline-none transition-all duration-300 focus:border-blue-500 focus:bg-white focus:shadow-lg hover:border-gray-300"
                   />
                 </div>
-
-                <div>
-                  <label htmlFor="email" className="block mb-2 font-medium text-gray-900 text-left">
+                <div className="relative">
+                  <label htmlFor="email" className="flex items-center gap-2 mb-3 font-semibold text-gray-800">
+                    <FaEnvelope className="text-blue-500" />
                     Email Address *
                   </label>
                   <input
@@ -94,14 +119,14 @@ export default function PaymentSection() {
                     name="email"
                     value={userDetails.email}
                     onChange={handleUserDetailsChange}
-                    placeholder="Enter your email address"
+                    placeholder="your.email@example.com"
                     required
-                    className="w-full px-4 py-3 border-2 border-blue-100 rounded-lg text-base outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="w-full px-5 py-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl text-base outline-none transition-all duration-300 focus:border-blue-500 focus:bg-white focus:shadow-lg hover:border-gray-300"
                   />
                 </div>
-
-                <div>
-                  <label htmlFor="phone" className="block mb-2 font-medium text-gray-900 text-left">
+                <div className="relative">
+                  <label htmlFor="phone" className="flex items-center gap-2 mb-3 font-semibold text-gray-800">
+                    <FaPhone className="text-blue-500" />
                     Phone Number *
                   </label>
                   <input
@@ -110,15 +135,15 @@ export default function PaymentSection() {
                     name="phone"
                     value={userDetails.phone}
                     onChange={handleUserDetailsChange}
-                    placeholder="Enter your phone number"
+                    placeholder="+91 XXXXX XXXXX"
                     required
-                    className="w-full px-4 py-3 border-2 border-blue-100 rounded-lg text-base outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="w-full px-5 py-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl text-base outline-none transition-all duration-300 focus:border-blue-500 focus:bg-white focus:shadow-lg hover:border-gray-300"
                   />
                 </div>
-
-                <div>
-                  <label htmlFor="course" className="block mb-2 font-medium text-gray-900 text-left">
-                    Course (Optional)
+                <div className="relative">
+                  <label htmlFor="course" className="flex items-center gap-2 mb-3 font-semibold text-gray-800">
+                    <FaGraduationCap className="text-blue-500" />
+                    Course Name
                   </label>
                   <input
                     type="text"
@@ -126,66 +151,81 @@ export default function PaymentSection() {
                     name="course"
                     value={userDetails.course}
                     onChange={handleUserDetailsChange}
-                    placeholder="Enter course name"
-                    className="w-full px-4 py-3 border-2 border-blue-100 rounded-lg text-base outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    placeholder="e.g., BCA, MBA, B.Ed"
+                    className="w-full px-5 py-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl text-base outline-none transition-all duration-300 focus:border-blue-500 focus:bg-white focus:shadow-lg hover:border-gray-300"
                   />
                 </div>
               </div>
             </div>
-
-            {/* Amount Selection */}
-            <div className="mb-8">
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6">Select Fee Amount</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+            <div className="mb-10">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+                  <FaRupeeSign className="text-white text-sm" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">Fee Amount</h2>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
                 {predefinedAmounts.map((amount) => (
                   <button
                     key={amount}
                     onClick={() => handleAmountSelect(amount)}
-                    className={`py-3 px-4 text-sm font-medium rounded-lg transition-colors ${
+                    className={`relative py-4 px-3 text-center rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                       selectedAmount === amount && !customAmount
-                        ? "bg-blue-600 text-white"
-                        : "bg-blue-50 text-blue-600 border border-blue-200 hover:bg-blue-100"
+                        ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg"
+                        : "bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700 border-2 border-gray-200 hover:border-blue-300 hover:shadow-md"
                     }`}
                   >
-                    ₹{amount.toLocaleString()}
+                    <FaRupeeSign className="inline mr-1 text-sm" />
+                    {amount.toLocaleString()}
+                    {selectedAmount === amount && !customAmount && (
+                      <IoCheckmarkCircle className="absolute -top-2 -right-2 text-green-400 text-xl bg-white rounded-full" />
+                    )}
                   </button>
                 ))}
               </div>
-
-              <div>
-                <label htmlFor="customAmount" className="block mb-2 font-medium text-gray-900 text-left">
+              <div className="relative">
+                <label htmlFor="customAmount" className="flex items-center gap-2 mb-3 font-semibold text-gray-800">
+                  <MdPayment className="text-blue-500" />
                   Custom Amount
                 </label>
-                <input
-                  type="number"
-                  id="customAmount"
-                  value={customAmount}
-                  onChange={handleCustomAmountChange}
-                  placeholder="Enter fee amount"
-                  min="1"
-                  className="w-full px-4 py-3 border-2 border-blue-100 rounded-lg text-base outline-none transition-colors focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
-                />
+                <div className="relative">
+                  <FaRupeeSign className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="number"
+                    id="customAmount"
+                    value={customAmount}
+                    onChange={handleCustomAmountChange}
+                    placeholder="Enter custom amount"
+                    min="1"
+                    className="w-full pl-12 pr-5 py-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl text-base outline-none transition-all duration-300 focus:border-blue-500 focus:bg-white focus:shadow-lg hover:border-gray-300"
+                  />
+                </div>
               </div>
             </div>
-
-            {/* Payment Button */}
-            <div className="mb-6">
+            <div className="mb-8">
               <RazorpayButton
                 amount={selectedAmount}
                 name="The Sunrise Education"
                 description="Course fee payment"
-                buttonText={`Pay Fee ₹${selectedAmount.toLocaleString()}`}
+                buttonText={
+                  <div className="flex items-center justify-center gap-3">
+                    <IoCard className="text-xl" />
+                    <span>Pay Fee ₹{selectedAmount.toLocaleString()}</span>
+                  </div>
+                }
                 buttonStyle={{
                   width: "100%",
-                  fontSize: "16px",
-                  padding: "16px",
-                  backgroundColor: isFormValid ? "#2563eb" : "#9ca3af",
+                  fontSize: "18px",
+                  padding: "18px 24px",
+                  background: isFormValid ? "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)" : "#9ca3af",
                   color: "white",
                   border: "none",
-                  borderRadius: "8px",
-                  fontWeight: "600",
+                  borderRadius: "16px",
+                  fontWeight: "700",
                   cursor: isFormValid ? "pointer" : "not-allowed",
-                  transition: "background-color 0.2s",
+                  transition: "all 0.3s ease",
+                  boxShadow: isFormValid ? "0 10px 25px rgba(59, 130, 246, 0.3)" : "none",
+                  transform: isFormValid ? "translateY(0)" : "none",
                 }}
                 onSuccess={handlePaymentSuccess}
                 onFailure={handlePaymentFailure}
@@ -193,28 +233,49 @@ export default function PaymentSection() {
                 userDetails={userDetails}
               />
               {!isFormValid && (
-                <p className="text-red-600 text-sm mt-2 text-center">
-                  Please fill in all required fields to proceed with payment
-                </p>
+                <div className="flex items-center justify-center gap-2 mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                  <MdSecurity className="text-red-500" />
+                  <p className="text-red-600 text-sm font-medium">Please complete all required fields to proceed</p>
+                </div>
               )}
             </div>
-
-            {/* Payment Status */}
             {paymentStatus && (
               <div
-                className={`p-4 rounded-lg text-center font-medium mb-6 ${
-                  paymentStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                className={`flex items-center gap-3 p-5 rounded-xl font-semibold mb-8 ${
+                  paymentStatus.type === "success"
+                    ? "bg-gradient-to-r from-green-50 to-emerald-50 text-green-800 border border-green-200"
+                    : "bg-gradient-to-r from-red-50 to-pink-50 text-red-800 border border-red-200"
                 }`}
               >
-                {paymentStatus.message}
+                {paymentStatus.type === "success" ? (
+                  <IoCheckmarkCircle className="text-2xl text-green-600" />
+                ) : (
+                  <MdSecurity className="text-2xl text-red-600" />
+                )}
+                <span>{paymentStatus.message}</span>
               </div>
             )}
-
-            {/* Trust Indicators */}
-            <div className="text-center">
-              <p className="text-gray-600 text-sm mb-2">🔒 Secure payment powered by Razorpay</p>
-              <p className="text-gray-500 text-xs">
-                Your fee payment is processed securely. Keep your payment receipt for future reference.
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <FaShieldAlt className="text-blue-600 text-xl" />
+                <h3 className="text-lg font-bold text-blue-900">Secure Payment</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                <div className="flex flex-col items-center gap-2">
+                  <MdVerifiedUser className="text-2xl text-green-600" />
+                  <p className="text-sm font-medium text-gray-700">SSL Encrypted</p>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <MdAccountBalance className="text-2xl text-blue-600" />
+                  <p className="text-sm font-medium text-gray-700">Bank Grade Security</p>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <FaLock className="text-2xl text-purple-600" />
+                  <p className="text-sm font-medium text-gray-700">PCI Compliant</p>
+                </div>
+              </div>
+              <p className="text-center text-gray-600 text-sm mt-4 leading-relaxed">
+                Powered by Razorpay • Your payment information is encrypted and secure
               </p>
             </div>
           </div>
