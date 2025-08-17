@@ -1,0 +1,47 @@
+export const teamData = [
+  {
+    id: 1,
+    name: "Ashish",
+    position: "Partner Founder",
+    image: "/placeholder.svg?height=512&width=512",
+    bio: "Visionary leader with over 10 years of experience in education sector. Passionate about making quality education accessible to all.",
+    specialization: "Strategic Planning & Business Development",
+    social: {
+      instagram: "https://instagram.com/ashish_sunrise",
+      twitter: "https://twitter.com/ashish_sunrise",
+      linkedin: "https://linkedin.com/in/ashish-sunrise",
+      whatsapp: "+91-9876543220",
+      phone: "+91-9876543220",
+    },
+  },
+  {
+    id: 2,
+    name: "Surendra Kumar",
+    position: "Manager",
+    image: "/placeholder.svg?height=512&width=512",
+    bio: "Experienced education consultant with expertise in admission processes and student counseling. Dedicated to student success.",
+    specialization: "Admission Counseling & Student Relations",
+    social: {
+      instagram: "https://instagram.com/surendra_sunrise",
+      twitter: "https://twitter.com/surendra_sunrise",
+      linkedin: "https://linkedin.com/in/surendra-kumar-sunrise",
+      whatsapp: "+91-9876543221",
+      phone: "+91-9876543221",
+    },
+  },
+  {
+    id: 3,
+    name: "Aditya Kumar",
+    position: "Academic Director",
+    image: "/placeholder.svg?height=512&width=512",
+    bio: "Academic excellence advocate with deep knowledge of curriculum development and educational standards. Ensures quality education delivery.",
+    specialization: "Academic Planning & Quality Assurance",
+    social: {
+      instagram: "https://instagram.com/aditya_sunrise",
+      twitter: "https://twitter.com/aditya_sunrise",
+      linkedin: "https://linkedin.com/in/aditya-kumar-sunrise",
+      whatsapp: "+91-9876543222",
+      phone: "+91-9876543222",
+    },
+  },
+]
