@@ -1,88 +1,112 @@
 import Link from "next/link"
 import { collegesData } from "../data/colleges/colleges"
+import { FaUniversity, FaCertificate, FaEye, FaPaperPlane } from "react-icons/fa"
+import { MdLocationOn, MdSchool, MdVerified } from "react-icons/md"
+import { IoMdTime } from "react-icons/io"
 
 export default function CollegeGrid() {
   return (
-    <div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "30px" }}>
-        {collegesData.map((college) => (
-          <div key={college.id} className="card">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {collegesData.map((college) => (
+        <div
+          key={college.id}
+          className="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg border border-white/20 overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-500 h-full flex flex-col"
+        >
+          {/* Image Container */}
+          <div className="relative overflow-hidden">
             <img
               src={college.image || "/placeholder.svg"}
               alt={college.name}
-              style={{
-                width: "100%",
-                height: "220px",
-                objectFit: "cover",
-                borderRadius: "8px",
-                marginBottom: "20px",
-              }}
+              className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
+              <FaUniversity className="w-4 h-4 text-blue-500" />
+            </div>
+          </div>
 
-            <div style={{ marginBottom: "15px" }}>
-              <h3 style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937", marginBottom: "8px" }}>
+          {/* Content Container */}
+          <div className="p-6 flex-1 flex flex-col">
+            {/* Header */}
+            <div className="mb-4">
+              <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
                 {college.name}
               </h3>
-              <p style={{ color: "#6b7280", fontSize: "16px", marginBottom: "10px" }}>{college.location}</p>
-              <p style={{ color: "#6b7280", lineHeight: "1.6", fontSize: "14px" }}>{college.description}</p>
+              <div className="flex items-center text-gray-600 mb-2">
+                <MdLocationOn className="w-4 h-4 mr-2 text-red-500" />
+                <span className="text-sm font-medium">{college.location}</span>
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">{college.description}</p>
             </div>
 
             {/* College Details */}
-            <div style={{ marginBottom: "20px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                <span style={{ color: "#6b7280", fontWeight: "500" }}>Established:</span>
-                <span style={{ fontWeight: "600", color: "#1f2937" }}>{college.established}</span>
+            <div className="space-y-3 mb-4">
+              <div className="flex items-center justify-between py-2 px-3 bg-gray-50/80 rounded-xl">
+                <div className="flex items-center">
+                  <IoMdTime className="w-4 h-4 text-blue-500 mr-2" />
+                  <span className="text-sm text-gray-600 font-medium">Established</span>
+                </div>
+                <span className="text-sm font-bold text-gray-800">{college.established}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                <span style={{ color: "#6b7280", fontWeight: "500" }}>Type:</span>
-                <span style={{ fontWeight: "600", color: "#1f2937" }}>{college.type}</span>
+
+              <div className="flex items-center justify-between py-2 px-3 bg-gray-50/80 rounded-xl">
+                <div className="flex items-center">
+                  <MdSchool className="w-4 h-4 text-indigo-500 mr-2" />
+                  <span className="text-sm text-gray-600 font-medium">Type</span>
+                </div>
+                <span className="text-sm font-bold text-gray-800">{college.type}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                <span style={{ color: "#6b7280", fontWeight: "500" }}>Accreditation:</span>
-                <span style={{ fontWeight: "600", color: "#10b981" }}>{college.accreditation}</span>
+
+              <div className="flex items-center justify-between py-2 px-3 bg-green-50/80 rounded-xl">
+                <div className="flex items-center">
+                  <MdVerified className="w-4 h-4 text-green-500 mr-2" />
+                  <span className="text-sm text-gray-600 font-medium">Accreditation</span>
+                </div>
+                <span className="text-sm font-bold text-green-600">{college.accreditation}</span>
               </div>
             </div>
 
             {/* Courses Offered */}
-            <div style={{ marginBottom: "20px" }}>
-              <h4 style={{ fontSize: "16px", fontWeight: "600", color: "#1f2937", marginBottom: "10px" }}>
-                Courses Offered:
+            <div className="mb-6 flex-1">
+              <h4 className="text-sm font-bold text-gray-800 mb-3 flex items-center">
+                <FaCertificate className="w-4 h-4 mr-2 text-purple-500" />
+                Courses Offered
               </h4>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-                {college.courses.map((course, index) => (
+              <div className="flex flex-wrap gap-2">
+                {college.courses.slice(0, 4).map((course, index) => (
                   <span
                     key={index}
-                    style={{
-                      backgroundColor: "#e5f3ff",
-                      color: "#3b82f6",
-                      padding: "4px 12px",
-                      borderRadius: "20px",
-                      fontSize: "12px",
-                      fontWeight: "500",
-                    }}
+                    className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold border border-blue-200/50 hover:shadow-md transition-shadow duration-200"
                   >
                     {course}
                   </span>
                 ))}
+                {college.courses.length > 4 && (
+                  <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-semibold">
+                    +{college.courses.length - 4} more
+                  </span>
+                )}
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div style={{ display: "flex", gap: "10px" }}>
-              <Link href={`/colleges/${college.id}`} style={{ flex: 1 }}>
-                <button className="btn-secondary" style={{ width: "100%", padding: "12px" }}>
-                  View Details
+            <div className="flex gap-3 mt-auto">
+              <Link href={`/colleges/${college.id}`} className="flex-1">
+                <button className="w-full bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-700 font-semibold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-lg group/btn">
+                  <FaEye className="w-4 h-4 group-hover/btn:scale-110 transition-transform duration-200" />
+                  <span className="text-sm">View Details</span>
                 </button>
               </Link>
-              <Link href="/contact" style={{ flex: 1 }}>
-                <button className="btn-primary" style={{ width: "100%", padding: "12px" }}>
-                  Apply Now
+              <Link href="/contact" className="flex-1">
+                <button className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-lg hover:scale-105 group/btn">
+                  <FaPaperPlane className="w-4 h-4 group-hover/btn:scale-110 transition-transform duration-200" />
+                  <span className="text-sm">Apply Now</span>
                 </button>
               </Link>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   )
 }
