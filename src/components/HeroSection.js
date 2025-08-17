@@ -1,66 +1,79 @@
 import Link from "next/link"
+import { FaGraduationCap, FaUsers, FaAward, FaArrowRight } from "react-icons/fa"
+import { MdSchool, MdTrendingUp } from "react-icons/md"
 
 export default function HeroSection() {
   return (
-    <section style={{ background: "linear-gradient(135deg, #e5f3ff 0%, #ffffff 100%)", padding: "80px 0" }}>
-      <div className="container">
-        <div style={{ display: "flex", alignItems: "center", gap: "60px", flexWrap: "wrap" }}>
-          <div style={{ flex: "1", minWidth: "300px" }}>
-            <h1
-              style={{
-                fontSize: "48px",
-                fontWeight: "700",
-                color: "#1f2937",
-                marginBottom: "20px",
-                lineHeight: "1.2",
-              }}
-            >
-              Your Gateway to <span style={{ color: "#3b82f6" }}>Quality Education</span>
+    <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <div className="flex-1 text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Your Gateway to{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Quality Education
+              </span>
             </h1>
-            <p
-              style={{
-                fontSize: "20px",
-                color: "#6b7280",
-                marginBottom: "30px",
-                lineHeight: "1.6",
-              }}
-            >
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
               Leading education consultancy for college admissions across Jharkhand, Bengal, and UP. Get expert guidance
-              for BSC, MSC, BCA, BBA, Nursing, B.ED, and D.El.Ed courses.
+              for BSC, MSC, BCA, BBA, Nursing, B.ED, and D.El.Ed courses with scholarship opportunities.
             </p>
-            <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Link href="/courses">
-                <button className="btn-primary" style={{ fontSize: "18px", padding: "15px 30px" }}>
+                <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                  <MdSchool className="text-xl" />
                   Explore Courses
+                  <FaArrowRight className="text-sm" />
                 </button>
               </Link>
               <Link href="/contact">
-                <button className="btn-secondary" style={{ fontSize: "18px", padding: "15px 30px" }}>
+                <button className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-200 hover:border-blue-300 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                  <FaUsers className="text-xl" />
                   Get Consultation
                 </button>
               </Link>
             </div>
-            <div style={{ marginTop: "40px", display: "flex", gap: "30px", flexWrap: "wrap" }}>
-              <div>
-                <h3 style={{ fontSize: "24px", fontWeight: "600", color: "#3b82f6", margin: 0 }}>500+</h3>
-                <p style={{ color: "#6b7280", margin: 0 }}>Students Placed</p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100">
+                <div className="flex items-center justify-center mb-2">
+                  <FaUsers className="text-2xl text-blue-600 mr-2" />
+                  <h3 className="text-3xl font-bold text-blue-600">500+</h3>
+                </div>
+                <p className="text-gray-600 font-medium">Students Placed</p>
               </div>
-              <div>
-                <h3 style={{ fontSize: "24px", fontWeight: "600", color: "#3b82f6", margin: 0 }}>50+</h3>
-                <p style={{ color: "#6b7280", margin: 0 }}>Partner Colleges</p>
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100">
+                <div className="flex items-center justify-center mb-2">
+                  <MdSchool className="text-2xl text-purple-600 mr-2" />
+                  <h3 className="text-3xl font-bold text-purple-600">50+</h3>
+                </div>
+                <p className="text-gray-600 font-medium">Partner Colleges</p>
               </div>
-              <div>
-                <h3 style={{ fontSize: "24px", fontWeight: "600", color: "#3b82f6", margin: 0 }}>95%</h3>
-                <p style={{ color: "#6b7280", margin: 0 }}>Success Rate</p>
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-green-100">
+                <div className="flex items-center justify-center mb-2">
+                  <MdTrendingUp className="text-2xl text-green-600 mr-2" />
+                  <h3 className="text-3xl font-bold text-green-600">95%</h3>
+                </div>
+                <p className="text-gray-600 font-medium">Success Rate</p>
               </div>
             </div>
           </div>
-          <div style={{ flex: "1", minWidth: "300px", textAlign: "center" }}>
-            <img
-              src="/placeholder.svg?height=400&width=500&text=Students+Learning"
-              alt="Students in classroom"
-              style={{ maxWidth: "100%", height: "auto", borderRadius: "12px" }}
-            />
+
+          <div className="flex-1 relative">
+            <div className="relative bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl p-8 shadow-2xl">
+              <img
+                src="/placeholder.svg?height=400&width=500&text=Students+Learning"
+                alt="Students in classroom"
+                className="w-full h-auto rounded-2xl shadow-lg"
+              />
+              <div className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-lg">
+                <FaGraduationCap className="text-2xl text-blue-600" />
+              </div>
+              <div className="absolute -bottom-4 -left-4 bg-white rounded-full p-4 shadow-lg">
+                <FaAward className="text-2xl text-purple-600" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
