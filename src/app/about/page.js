@@ -62,7 +62,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Vision</h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  To become India's most trusted education consultancy, known for transparency, integrity, and student
+                  To become India s most trusted education consultancy, known for transparency, integrity, and student
                   success. We envision a future where every student has access to quality education regardless of their
                   background or financial constraints.
                 </p>

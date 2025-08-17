@@ -13,7 +13,7 @@ export default function NotFound() {
               Team Member Not Found
             </h1>
             <p style={{ fontSize: "18px", color: "#6b7280", marginBottom: "30px" }}>
-              The team member you're looking for doesn't exist or has been moved.
+              The team member you are looking for does not exist or has been moved.
             </p>
             <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/team">

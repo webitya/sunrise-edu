@@ -262,7 +262,7 @@ export default function ContactForm() {
               fontWeight: "500",
             }}
           >
-            Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+            Thank you! Your message has been sent successfully. We will get back to you within 24 hours.
           </div>
         )}
 

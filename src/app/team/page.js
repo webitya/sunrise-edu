@@ -66,7 +66,7 @@ export default function TeamPage() {
                   Integrity
                 </h3>
                 <p style={{ color: "#6b7280", lineHeight: "1.6" }}>
-                  Honest, transparent guidance with students' best interests always at heart.
+                  Honest, transparent guidance with students best interests always at heart.
                 </p>
               </div>
 
@@ -86,7 +86,7 @@ export default function TeamPage() {
                   Compassion
                 </h3>
                 <p style={{ color: "#6b7280", lineHeight: "1.6" }}>
-                  Understanding each student's unique journey and providing empathetic support.
+                  Understanding each student s unique journey and providing empathetic support.
                 </p>
               </div>
             </div>
