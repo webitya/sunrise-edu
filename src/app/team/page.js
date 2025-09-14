@@ -8,6 +8,33 @@ export const metadata = {
     "Meet the experienced team behind The Sunrise Education. Our founders Ashish, Surendra Kumar, and Academic Director Aditya Kumar bring years of expertise in education consulting.",
   keywords: "team, founders, education counselors, Ashish, Surendra Kumar, Aditya Kumar, education experts",
 }
+export const teamData = [
+  {
+    id: 1,
+    name: "Ashish",
+    position: "Partner Founder",
+    image: "/placeholder.svg?height=200&width=200",
+    bio: "Visionary leader with over 10 years of experience in education sector. Passionate about making quality education accessible to all.",
+    specialization: "Strategic Planning & Business Development",
+  },
+  {
+    id: 2,
+    name: "Surendra Kumar",
+    position: "Manager",
+    image: "/placeholder.svg?height=200&width=200",
+    bio: "Experienced education consultant with expertise in admission processes and student counseling. Dedicated to student success.",
+    specialization: "Admission Counseling & Student Relations",
+  },
+  {
+    id: 3,
+    name: "Aditya Kumar",
+    position: "Academic Director",
+    image: "/placeholder.svg?height=200&width=200",
+    bio: "Academic excellence advocate with deep knowledge of curriculum development and educational standards. Ensures quality education delivery.",
+    specialization: "Academic Planning & Quality Assurance",
+  },
+]
+
 
 export default function TeamPage() {
   return (
@@ -31,11 +58,38 @@ export default function TeamPage() {
         </section>
 
         {/* Team Section */}
-        <section style={{ padding: "80px 0", backgroundColor: "#ffffff" }}>
-          <div className="container">
-            <TeamGrid />
-          </div>
-        </section>
+<section className="py-16 px-6 lg:px-20 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white relative overflow-hidden">
+  {/* Animated background shapes */}
+  <div className="absolute inset-0">
+    <div className="absolute top-10 left-10 w-40 h-40 bg-blue-400 rounded-full opacity-20 animate-pulse"></div>
+    <div className="absolute bottom-10 right-10 w-52 h-52 bg-indigo-400 rounded-full opacity-20 animate-bounce"></div>
+  </div>
+
+  {/* Header */}
+
+
+  {/* Team Grid */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+    {teamData.map((member, index) => (
+      <div
+        key={member.id}
+        className="bg-white text-gray-900 p-6 rounded-2xl shadow-lg transform hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-blue-400 transition duration-500 ease-in-out animate-fade-up"
+        style={{ animationDelay: `${index * 0.2}s` }}
+      >
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-32 h-32 rounded-full mx-auto mb-6 shadow-md border-4 border-blue-100 hover:border-blue-400 transition"
+        />
+        <h2 className="text-xl font-bold">{member.name}</h2>
+        <p className="text-blue-600 font-medium">{member.position}</p>
+        <p className="mt-2 text-sm text-gray-500 italic">{member.specialization}</p>
+        <p className="mt-4 text-gray-700">{member.bio}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
         {/* Values Section */}
         <section style={{ padding: "60px 0", backgroundColor: "#f8fafc" }}>

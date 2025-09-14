@@ -15,7 +15,7 @@ export const coursesData = [
     semesterFee: 6000,
     scholarshipAmount: 15000,
     scholarshipType: "partial",
-    image: "/placeholder-b2xev.png",
+    image: "/bscmsc.png",
     duration: "3-2 years",
     eligibility: "12th Pass with Science",
   },

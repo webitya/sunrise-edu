@@ -28,22 +28,13 @@ export default function ContactForm() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
 
       if (response.ok) {
         setSubmitStatus("success")
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          course: "",
-          college: "",
-          message: "",
-        })
+        setFormData({ name: "", email: "", phone: "", course: "", college: "", message: "" })
       } else {
         setSubmitStatus("error")
       }
@@ -56,15 +47,16 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="card">
-      <h2 style={{ fontSize: "28px", fontWeight: "600", color: "#1f2937", marginBottom: "20px" }}>Get In Touch</h2>
-      <p style={{ color: "#6b7280", marginBottom: "30px", lineHeight: "1.6" }}>
+    <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-2xl p-8 md:p-10 border border-blue-100 animate-fadeIn">
+      <h2 className="text-3xl font-bold text-blue-700 mb-4">Get In Touch</h2>
+      <p className="text-gray-600 mb-8 leading-relaxed">
         Fill out the form below and our education counselors will get back to you within 24 hours.
       </p>
 
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Name */}
         <div>
-          <label htmlFor="name" style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#1f2937" }}>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
             Full Name *
           </label>
           <input
@@ -74,22 +66,13 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            style={{
-              width: "100%",
-              padding: "12px 16px",
-              border: "2px solid #e5f3ff",
-              borderRadius: "8px",
-              fontSize: "16px",
-              outline: "none",
-              transition: "border-color 0.3s ease",
-            }}
-            onFocus={(e) => (e.target.style.borderColor = "#3b82f6")}
-            onBlur={(e) => (e.target.style.borderColor = "#e5f3ff")}
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none transition"
           />
         </div>
 
+        {/* Email */}
         <div>
-          <label htmlFor="email" style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#1f2937" }}>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
             Email Address *
           </label>
           <input
@@ -99,22 +82,13 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            style={{
-              width: "100%",
-              padding: "12px 16px",
-              border: "2px solid #e5f3ff",
-              borderRadius: "8px",
-              fontSize: "16px",
-              outline: "none",
-              transition: "border-color 0.3s ease",
-            }}
-            onFocus={(e) => (e.target.style.borderColor = "#3b82f6")}
-            onBlur={(e) => (e.target.style.borderColor = "#e5f3ff")}
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none transition"
           />
         </div>
 
+        {/* Phone */}
         <div>
-          <label htmlFor="phone" style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#1f2937" }}>
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
             Phone Number *
           </label>
           <input
@@ -124,25 +98,13 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             required
-            style={{
-              width: "100%",
-              padding: "12px 16px",
-              border: "2px solid #e5f3ff",
-              borderRadius: "8px",
-              fontSize: "16px",
-              outline: "none",
-              transition: "border-color 0.3s ease",
-            }}
-            onFocus={(e) => (e.target.style.borderColor = "#3b82f6")}
-            onBlur={(e) => (e.target.style.borderColor = "#e5f3ff")}
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none transition"
           />
         </div>
 
+        {/* Course */}
         <div>
-          <label
-            htmlFor="course"
-            style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#1f2937" }}
-          >
+          <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-2">
             Interested Course
           </label>
           <select
@@ -150,18 +112,7 @@ export default function ContactForm() {
             name="course"
             value={formData.course}
             onChange={handleChange}
-            style={{
-              width: "100%",
-              padding: "12px 16px",
-              border: "2px solid #e5f3ff",
-              borderRadius: "8px",
-              fontSize: "16px",
-              outline: "none",
-              transition: "border-color 0.3s ease",
-              backgroundColor: "white",
-            }}
-            onFocus={(e) => (e.target.style.borderColor = "#3b82f6")}
-            onBlur={(e) => (e.target.style.borderColor = "#e5f3ff")}
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none transition"
           >
             <option value="">Select a course</option>
             <option value="BSC & MSC">BSC & MSC</option>
@@ -174,11 +125,9 @@ export default function ContactForm() {
           </select>
         </div>
 
+        {/* College */}
         <div>
-          <label
-            htmlFor="college"
-            style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#1f2937" }}
-          >
+          <label htmlFor="college" className="block text-sm font-medium text-gray-700 mb-2">
             Preferred College/University
           </label>
           <select
@@ -186,18 +135,7 @@ export default function ContactForm() {
             name="college"
             value={formData.college}
             onChange={handleChange}
-            style={{
-              width: "100%",
-              padding: "12px 16px",
-              border: "2px solid #e5f3ff",
-              borderRadius: "8px",
-              fontSize: "16px",
-              outline: "none",
-              transition: "border-color 0.3s ease",
-              backgroundColor: "white",
-            }}
-            onFocus={(e) => (e.target.style.borderColor = "#3b82f6")}
-            onBlur={(e) => (e.target.style.borderColor = "#e5f3ff")}
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none transition"
           >
             <option value="">Select a college</option>
             <option value="Radha Govind University">Radha Govind University (Ramgarh)</option>
@@ -208,11 +146,9 @@ export default function ContactForm() {
           </select>
         </div>
 
+        {/* Message */}
         <div>
-          <label
-            htmlFor="message"
-            style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#1f2937" }}
-          >
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
             Message
           </label>
           <textarea
@@ -221,63 +157,33 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             rows="4"
-            style={{
-              width: "100%",
-              padding: "12px 16px",
-              border: "2px solid #e5f3ff",
-              borderRadius: "8px",
-              fontSize: "16px",
-              outline: "none",
-              transition: "border-color 0.3s ease",
-              resize: "vertical",
-            }}
-            onFocus={(e) => (e.target.style.borderColor = "#3b82f6")}
-            onBlur={(e) => (e.target.style.borderColor = "#e5f3ff")}
             placeholder="Tell us about your educational goals and any specific questions you have..."
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-300 outline-none transition resize-y"
           />
         </div>
 
+        {/* Button */}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-primary"
-          style={{
-            fontSize: "18px",
-            padding: "15px 30px",
-            opacity: isSubmitting ? 0.7 : 1,
-            cursor: isSubmitting ? "not-allowed" : "pointer",
-          }}
+          className={`w-full py-3 text-lg font-medium rounded-lg text-white shadow-md transform transition ${
+            isSubmitting
+              ? "bg-blue-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700 hover:scale-[1.02]"
+          }`}
         >
           {isSubmitting ? "Sending..." : "Send Message"}
         </button>
 
+        {/* Status Messages */}
         {submitStatus === "success" && (
-          <div
-            style={{
-              backgroundColor: "#dcfce7",
-              color: "#166534",
-              padding: "12px 16px",
-              borderRadius: "8px",
-              textAlign: "center",
-              fontWeight: "500",
-            }}
-          >
-            Thank you! Your message has been sent successfully. We will get back to you within 24 hours.
+          <div className="bg-green-100 text-green-700 py-3 px-4 rounded-lg text-center font-medium animate-fadeIn">
+            ✅ Thank you! Your message has been sent successfully.
           </div>
         )}
-
         {submitStatus === "error" && (
-          <div
-            style={{
-              backgroundColor: "#fee2e2",
-              color: "#991b1b",
-              padding: "12px 16px",
-              borderRadius: "8px",
-              textAlign: "center",
-              fontWeight: "500",
-            }}
-          >
-            Sorry, there was an error sending your message. Please try again or contact us directly.
+          <div className="bg-red-100 text-red-700 py-3 px-4 rounded-lg text-center font-medium animate-fadeIn">
+            ❌ Sorry, there was an error sending your message. Please try again.
           </div>
         )}
       </form>

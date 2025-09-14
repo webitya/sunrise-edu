@@ -63,7 +63,7 @@ export default function HeroSection() {
           <div className="flex-1 relative">
             <div className="relative bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl p-6 shadow-2xl">
               <img
-                src="/placeholder.svg?height=350&width=450&text=Students+Learning"
+                src="/home.png?height=350&width=450&text=Students+Learning"
                 alt="Students in classroom"
                 className="w-full h-auto rounded-2xl shadow-lg"
               />

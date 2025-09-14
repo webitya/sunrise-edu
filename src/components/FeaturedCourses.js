@@ -26,7 +26,7 @@ export default function FeaturedCourses() {
               className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden h-full flex flex-col"
             >
               <div className="relative">
-                <img src={course.image || "/placeholder.svg"} alt={course.name} className="w-full h-48 object-cover" />
+                <img src={course.image || "/bscmsc.png"} alt={course.name} className="w-full h-48 object-cover" />
                 <div className="absolute top-4 right-4">
                   {course.scholarshipType === "full" && (
                     <span className="flex items-center gap-1 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
