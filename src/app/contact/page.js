@@ -41,7 +41,7 @@ export default function ContactPage() {
         </section>
 
         {/* Map Section */}
-        <section style={{ padding: "60px 0", backgroundColor: "#f8fafc" }}>
+        {/* <section style={{ padding: "60px 0", backgroundColor: "#f8fafc" }}>
           <div className="container">
             <div style={{ textAlign: "center", marginBottom: "40px" }}>
               <h2 style={{ fontSize: "32px", fontWeight: "700", color: "#1f2937", marginBottom: "15px" }}>
@@ -63,7 +63,7 @@ export default function ContactPage() {
               <p style={{ color: "#3b82f6", fontSize: "18px", fontWeight: "500" }}>Interactive Map Coming Soon</p>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </div>
